@@ -1,6 +1,8 @@
 #!/usr/bin/python3
 """
-log parsing
+This script reads log lines from stdin, calculates metrics, and outputs
+statistics based on a specified log format. It tracks the total file size and
+counts occurrences of specific HTTP status codes.
 """
 
 import sys
@@ -14,7 +16,17 @@ if __name__ == '__main__':
 
     def print_statistics(stats: dict, total_size: int) -> None:
         """
-		function to display stats
+        Display aggregated statistics for the processed log data.
+
+        Args:
+            stats (dict): A dictionary containing the counts
+                            of HTTP status codes.
+            total_size (int): The cumulative file size from all processed logs.
+
+        Outputs:
+            Prints the total file size and the count of each
+            status code with a count greaterthan zero, in
+            ascending order by status code.
         """
         print(f'File size: {total_size}')
         for i, j in sorted(stats.items()):
