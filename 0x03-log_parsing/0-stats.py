@@ -9,7 +9,7 @@ import re
 
 def output(log: dict) -> None:
     """
-    helper function to display stats
+    function to display stats
     """
     print("File size: {}".format(log["file_size"]))
     for code in sorted(log["code_frequency"]):
